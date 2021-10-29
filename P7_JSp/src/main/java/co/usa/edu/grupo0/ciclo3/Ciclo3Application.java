@@ -24,9 +24,9 @@ import org.springframework.context.annotation.ComponentScan;
 public class Ciclo3Application {
     
     @Autowired
-    private ComputerRepository crudComputer;
-    @Autowired
     private CategoryRepository crudCategory ;
+    @Autowired
+    private ComputerRepository crudComputer;
     @Autowired
     private ClientRepository crudClient;
     @Autowired
@@ -42,11 +42,13 @@ public class Ciclo3Application {
     @Bean
     ApplicationRunner applicationRunner(){
         return args -> {
-            List<Computer> rcom = crudComputer.getAll();
-            System.out.println("Computers: "+rcom.size());
+            
             
             List<Category> rcat= crudCategory.getAll();
             System.out.println("Categories: "+rcat.size());
+            
+            List<Computer> rcom = crudComputer.getAll();
+            System.out.println("Computers: "+rcom.size());
             
             List<Client> rcli= crudClient.getAll();
             System.out.println("Clients: "+rcli.size());

@@ -23,9 +23,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "category")
 public class Category {
-    
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -66,7 +63,7 @@ public class Category {
         return computers;
     }
 
-    public void setComputers(List<Computer> computers) {
+    public void setComputer(List<Computer> computers) {
         this.computers = computers;
     }
 

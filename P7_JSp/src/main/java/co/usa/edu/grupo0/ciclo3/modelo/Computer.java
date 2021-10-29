@@ -24,14 +24,14 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="computers")
+@Table(name="computer")
 public class Computer implements Serializable{
      
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String brand;
     private String name;
+    private String brand;
     private Integer year;
     private String description;
     
@@ -45,11 +45,11 @@ public class Computer implements Serializable{
     
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
-    @JsonIgnoreProperties({"computers","clients"})
+    @JsonIgnoreProperties({"computer","client"})
     private List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
-    @JsonIgnoreProperties({"computers","clients"})
+    @JsonIgnoreProperties({"computer","client"})
     private List<Reservation> reservations;
 
     public Integer getId() {
@@ -60,20 +60,20 @@ public class Computer implements Serializable{
         this.id = id;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public Integer getYear() {
@@ -116,6 +116,7 @@ public class Computer implements Serializable{
         this.reservations = reservations;
     }
 
+    
     
     
     

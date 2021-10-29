@@ -34,7 +34,7 @@ public class Reservation implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="id")//llave foranea en computer
-    @JsonIgnoreProperties({"reservations","clients","messages"}) //evita que se genere una referencia circular 
+    @JsonIgnoreProperties("reservations") //evita que se genere una referencia circular 
     private Computer computer;
     
     
@@ -100,10 +100,4 @@ public class Reservation implements Serializable{
     public void setScore(String score) {
         this.score = score;
     }
-
-   
-
-    
-    
-    
 }

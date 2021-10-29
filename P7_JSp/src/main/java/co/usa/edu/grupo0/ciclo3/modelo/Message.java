@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "mesagges")
+@Table(name = "message")
 public class Message implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,12 +30,12 @@ public class Message implements Serializable{
 
     @ManyToOne
     @JoinColumn(name="id")//llave foranea en computer
-    @JsonIgnoreProperties({"messages", "clients", "reservations"}) //evita que se genere una referencia circular 
+    @JsonIgnoreProperties({"messages", "client", "reservations"}) //evita que se genere una referencia circular 
     private Computer computer;
     
     @ManyToOne
     @JoinColumn(name="idClient")//llave foranea en client
-    @JsonIgnoreProperties({"messages", "reservations", "clients"}) //evita que se genere una referencia circular 
+    @JsonIgnoreProperties({"messages", "reservations", "client"}) //evita que se genere una referencia circular 
     private Client client;
 
     public Integer getIdMessage() {
@@ -69,5 +69,4 @@ public class Message implements Serializable{
     public void setClient(Client client) {
         this.client = client;
     }
-
 }
